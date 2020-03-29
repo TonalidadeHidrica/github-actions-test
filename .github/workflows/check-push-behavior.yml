@@ -6,6 +6,10 @@ jobs:
     name: Show information of github object
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
       - name: Print github object
-        run: echo "${{ toJson(github) }}"
+        run: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | tee change-list.txt
 
