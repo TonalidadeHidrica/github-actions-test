@@ -1,0 +1,11 @@
+name: Show information
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Show information of github object
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print github object
+        run: echo "${{ toJson(github) }}"
+
