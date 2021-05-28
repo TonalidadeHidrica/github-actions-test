@@ -1,0 +1,12 @@
+name: Print home variable
+on: push
+
+jobs:
+  build:
+    name: Print home variable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print home variable
+        run: |
+          echo "\$HOME=$HOME"
+
