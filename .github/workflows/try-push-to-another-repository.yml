@@ -8,10 +8,15 @@ jobs:
     steps:
       - name: Clone myself
         uses: actions/checkout@v2
+      - name: Show pwd and ls
+        run: |
+          pwd
+          ls -al
       - name: Clone another repo
         uses: actions/checkout@v2
         with:
           repository: 'TonalidadeHidrica/github-actions-test-2'
-      - name: Show contents
+      - name: Show pwd and ls
         run: |
+          pwd
           ls -al
