@@ -25,7 +25,7 @@ jobs:
           pwd
           cd github-actions-test-2
           pwd
-          date --iso-8601 > date.log
+          date --iso-8601=seconds > date.log
           date=`date`
           git add .
           if ! git diff-index --quiet HEAD --
