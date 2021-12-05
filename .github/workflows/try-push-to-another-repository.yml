@@ -6,24 +6,31 @@ jobs:
     name: Try pushing to another repository
     runs-on: ubuntu-latest
     steps:
-      - name: show GITHUB_WORKSPACE
-        run: "echo $GITHUB_WORKSPACE"
-      - name: Show pwd and ls
-        run: |
-          pwd
-          tree ../
       - name: Clone myself
         uses: actions/checkout@v2
-      - name: Show pwd and ls
-        run: |
-          pwd
-          tree ../
+        with:
+          path: "github-actions-test"
       - name: Clone another repo
         uses: actions/checkout@v2
         with:
           repository: 'TonalidadeHidrica/github-actions-test-2'
           path: "github-actions-test-2"
-      - name: Show pwd and ls
+      - name: Pseudo-run
         run: |
           pwd
-          tree ../
+          cd github-actions-test
+          pwd
+          find a
+      - name: Pseudo-commit
+        run: |
+          pwd
+          cd github-actions-test-2
+          pwd
+          date > date.log
+          date=`date`
+          git add .
+          git commit
+          if ! git diff-index --quiet HEAD --
+          then
+            git -c user.name="bot" -c user.email="<>" commit --author="bot <>" --message="Test commit as of ${date}"
+          fi
