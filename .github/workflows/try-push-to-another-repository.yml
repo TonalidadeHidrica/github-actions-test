@@ -1,0 +1,17 @@
+name: Show information
+on: [push]
+
+jobs:
+  build:
+    name: Try pushing to another repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone myself
+        uses: actions/checkout@v1
+      - name: Clone another repo
+        uses: actions/checkout@v1
+        with:
+          repository: 'TonalidadeHidrica/github-actions-test-2'
+      - name: Show contents
+        run: |
+          ls -al
