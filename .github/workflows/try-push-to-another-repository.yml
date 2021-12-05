@@ -17,9 +17,7 @@ jobs:
           path: "github-actions-test-2"
       - name: Pseudo-run
         run: |
-          pwd
           cd github-actions-test
-          pwd
           find a
       - name: Pseudo-commit
         run: |
@@ -29,8 +27,8 @@ jobs:
           date > date.log
           date=`date`
           git add .
-          git commit
           if ! git diff-index --quiet HEAD --
           then
             git -c user.name="bot" -c user.email="<>" commit --author="bot <>" --message="Test commit as of ${date}"
           fi
+          git push
