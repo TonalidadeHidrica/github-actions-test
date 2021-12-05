@@ -15,6 +15,7 @@ jobs:
         with:
           repository: 'TonalidadeHidrica/github-actions-test-2'
           path: "github-actions-test-2"
+          ssh-key: "{{ secrets.DEPLOY_TOKEN }}"
       - name: Pseudo-run
         run: |
           cd github-actions-test
