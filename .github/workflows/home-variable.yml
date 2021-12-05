@@ -1,5 +1,5 @@
 name: Print home variable
-on: push
+on: {} # push
 
 jobs:
   build:
