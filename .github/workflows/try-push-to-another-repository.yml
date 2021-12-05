@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: 'TonalidadeHidrica/github-actions-test-2'
-          path: "../github-actions-test-2"
+          path: "github-actions-test-2"
       - name: Show pwd and ls
         run: |
           pwd
